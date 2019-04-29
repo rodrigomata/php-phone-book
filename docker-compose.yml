@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+        - "8080:80"
+    volumes:
+        - ./code:/code
+        - ./site.conf:/etc/nginx/conf.d/default.conf
+    networks:
+        - code-network
+  php:
+    image: php:7.2-fpm
+    env_file: 
+        - ./docker/mysql/.env
+        - ./docker/php/.env
+    volumes:
+        - ./code:/code
+        - ./docker/php/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
+    networks:
+        - code-network
+  db:
+    build: ./docker/mysql
+    env_file: ./docker/mysql/.env
+    container_name: mysql-db
+
+networks:
+    code-network:
+        driver: bridge
