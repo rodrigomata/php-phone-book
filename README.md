@@ -26,3 +26,8 @@ Root password (defined inside `/docker/mysql/Dockerfile`): test
 
 ### How to get database IP
 To get the IP of the container (for connecting remotely, like MySQL Workbench) run the following command: `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mysql-db`.
+
+### Connect locally to docker container
+Connection with e.g. MySQL Workbench:
+**Hostname**: 0.0.0.0 
+**Port**: 42333

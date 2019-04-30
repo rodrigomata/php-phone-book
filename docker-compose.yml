@@ -24,6 +24,10 @@ services:
     build: ./docker/mysql
     env_file: ./docker/mysql/.env
     container_name: mysql-db
+    ports: 
+      - "42333:3306"
+    networks:
+        - code-network
 
 networks:
     code-network:
