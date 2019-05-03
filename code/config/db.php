@@ -1,6 +1,4 @@
 <?php
-namespace Config\DB;
-
 class DB {
     private $host;
     private $username;

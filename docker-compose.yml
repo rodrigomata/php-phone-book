@@ -11,7 +11,7 @@ services:
     networks:
         - code-network
   php:
-    image: php:7.2-fpm
+    build: ./docker/php
     env_file: 
         - ./docker/mysql/.env
         - ./docker/php/.env
