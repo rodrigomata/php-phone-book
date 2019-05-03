@@ -14,7 +14,7 @@ class RouterService {
 
     /**
      * dispatch
-     * ::
+     * :: Validates requests and if able, dispatches the action
      * @author rodrigomata
      */
     public function dispatch() {

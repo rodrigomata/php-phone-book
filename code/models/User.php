@@ -35,6 +35,12 @@ class User extends BaseModel {
         return $stmt;
     }
 
+    /**
+     * show
+     * :: Prepares query to show a single user
+     * @author rodrigomata
+     * @return PDOStatement
+     */
     public function show() {
 
     }
@@ -48,9 +54,23 @@ class User extends BaseModel {
     public function create() {
         // $query = "INSERT INTO {$this->table} SET "
     }
+
+    /**
+     * update
+     * :: Prepares query to update existing user
+     * @author rodrigomata
+     * @return Boolean
+     */
     public function update($id) {
 
     }
+
+    /**
+     * delete
+     * :: Prepares query to delete existing user
+     * @author rodrigomata
+     * @return Boolean
+     */
     public function delete($id) {
 
     }

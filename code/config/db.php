@@ -17,6 +17,8 @@ class DB {
     /**
      * getConnection
      * :: Get current connection or create one if needed
+     * @author rodrigomata
+     * @return PDOStatement|PDOException
      */
     public function getConnection() {
         $this->connection = null;
