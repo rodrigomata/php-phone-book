@@ -1,5 +1,5 @@
 <?php
-abstract class View {
+abstract class ViewModel {
     abstract public static function render($content);
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-class JsonView extends View {
+class JsonView extends ViewModel {
     /**
      * render
      * :: Displays data encoded in json

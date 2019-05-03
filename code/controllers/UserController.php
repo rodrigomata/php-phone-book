@@ -1,23 +1,13 @@
 <?php
-include_once __DIR__ . '/../config/db.php';
-
-class UserController extends BaseController {
-    private $conn;
-    private $request;
-
-    function __construct($request = null) {
-        $db = new DB();
-        $this->conn = $db->getConnection();
-        $this->request = $request;
-    }
+class UserController extends Controller implements ManageableContract {
 
     /**
-     * list
+     * index
      * :: Lists users
      * @author rodrigomata
      */
-    public function list() {
-        $user = new User($this->conn);
+    public function index() {
+        $user = new UserModel($this->connection);
         $stmt = $user->list();
 
         $num = $stmt->rowCount();
@@ -49,8 +39,9 @@ class UserController extends BaseController {
      * show
      * :: Displays a information of a single user
      * @author rodrigomata
+     * @param Int $id 
      */
-    public function show() {
+    public function show($id) {
 
     }
 
@@ -67,16 +58,18 @@ class UserController extends BaseController {
      * update
      * :: Updates an existing user into the database
      * @author rodrigomata
+     * * @param Int $id 
      */
-    public function update() {
+    public function update($id) {
 
     }
 
     /**
      * delete
      * :: Erases an existing user from the database
+     * * @param Int $id 
      */
-    public function delete() {
+    public function destroy($id) {
 
     }
 

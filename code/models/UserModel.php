@@ -1,5 +1,5 @@
 <?php
-class User extends BaseModel {
+class UserModel extends Model {
     private $conn;
 
     protected $table = "users";

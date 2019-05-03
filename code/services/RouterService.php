@@ -8,7 +8,7 @@ class RouterService {
     private $path_valid;
 
     function __construct($request) {
-        $this->routes = require __DIR__ . '/../routes.php';
+        $this->routes = require __DIR__ . '/../config/routes.php';
         $this->request = $request;
     }
 

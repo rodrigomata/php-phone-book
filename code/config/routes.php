@@ -6,7 +6,7 @@
 
 return [
     'GET' => [
-        'api/users' => 'UserController@list',
+        'api/users' => 'UserController@index',
         'api/users/:id' => 'UserController@show',
     ],
     'POST' => [
@@ -16,7 +16,7 @@ return [
         'api/users' => 'UserController@update',
     ],
     'DELETE' => [
-        'api/users' => 'UserController@delete',
+        'api/users' => 'UserController@destroy',
     ]
 ]
 

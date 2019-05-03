@@ -3,7 +3,7 @@
 spl_autoload_register('autoloader');
 function autoloader($classname) {
     // :: Controllers
-    if (preg_match('/[a-zA-Z]+Controller$/', $classname)) {
+    if (preg_match('/[a-zA-Z]+Controller$|Controller/', $classname) || preg_match('/[a-zA-Z]+Contract$/', $classname)) {
         include __DIR__ . '/controllers/' . $classname . '.php';
         return true;
     } 
@@ -18,7 +18,7 @@ function autoloader($classname) {
         return true;
     }
     // :: Models
-    else if (preg_match('/[a-zA-Z]$/', $classname)) {
+    else if (preg_match('/[a-zA-Z]+Model$|Model/', $classname)) {
         include __DIR__ . '/models/' . $classname . '.php';
         return true;
     }
