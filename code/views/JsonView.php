@@ -1,8 +1,4 @@
 <?php
-include_once __DIR__ . '/../models/View.php';
-
-use Base\View\View as View;
-
 class JsonView extends View {
     /**
      * render

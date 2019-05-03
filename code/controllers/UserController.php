@@ -1,10 +1,7 @@
 <?php
 include_once __DIR__ . '/../config/db.php';
-include_once __DIR__  . '/../models/User.php';
 
-use Models\User\User as User;
-
-class UserController {
+class UserController extends BaseController {
     private $conn;
 
     function __construct() {
@@ -13,12 +10,11 @@ class UserController {
     }
 
     /**
-     * getAction
+     * list
      * :: Lists users
      * @author rodrigomata
-     * @return Array $items Users fetched
      */
-    public function getAction() {
+    public function list() {
         $user = new User($this->conn);
         $stmt = $user->list();
 
@@ -39,15 +35,23 @@ class UserController {
                 array_push($items, $item);
             }
         }
-        return $items;
+        
+        $data = array(
+            'data' => $items,
+            'message' => 'OK'
+        );
+        JsonView::render($data);
     }
-    public function postAction() {
+    public function show() {
 
     }
-    public function putAction() {
+    public function store() {
 
     }
-    public function deleteAction() {
+    public function update() {
+
+    }
+    public function delete() {
 
     }
 

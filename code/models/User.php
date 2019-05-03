@@ -1,11 +1,5 @@
 <?php
-namespace Models\User;
-
-require_once __DIR__ . '/interfaces/UserInterface.php';
-
-use Interfaces\User\UserInterface as UserInterface;
-
-class User implements UserInterface {
+class User extends BaseModel {
     private $conn;
 
     protected $table = "users";
@@ -27,7 +21,8 @@ class User implements UserInterface {
      * @return PDOStatement
      */
     public function list() {
-        $query = "SELECT u.id as id, u.first_name as first_name, u.last_name as last_name,
+        $query = "SELECT 
+            u.id as id, u.first_name as first_name, u.last_name as last_name, u.created as created,
             e.email as emails,
             p.phone as phones
             FROM {$this->table} as u 
@@ -39,8 +34,19 @@ class User implements UserInterface {
         $stmt->execute();
         return $stmt;
     }
-    public function create() {
 
+    public function show() {
+
+    }
+
+    /**
+     * create
+     * :: Prepares query to insert user
+     * @author rodrigomata
+     * @return Boolean
+     */
+    public function create() {
+        // $query = "INSERT INTO {$this->table} SET "
     }
     public function update($id) {
 
