@@ -18,7 +18,7 @@ function autoloader($classname) {
         return true;
     }
     // :: Models
-    else if (preg_match('/[a-zA-Z]+Model$|Model/', $classname)) {
+    else if (preg_match('/[a-zA-Z]/', $classname)) {
         include __DIR__ . '/models/' . $classname . '.php';
         return true;
     }

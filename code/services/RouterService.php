@@ -24,9 +24,7 @@ class RouterService {
 
         // :: Validations
         $data = array('data' => []);
-        if(!$this->request->isMethodValid() || !$this->validateRoute() || !$this->isControllerValid()) {
-            $data['message'] = 'ERROR: Wrong usage of api';
-            JsonView::render($data);
+        if(!$this->validateRequest()) {
             return;
         }
         
@@ -36,6 +34,32 @@ class RouterService {
 
         $controller = new $controller_name();
         $controller->$action($this->request);
+    }
+
+    /**
+     * validateRequest
+     * :: Performs series of checks to the request
+     * @author rodrigomata
+     * @return Boolean
+     */
+    private function validateRequest() {
+
+        if(!$this->request->isMethodValid()) {
+            $data['message'] = 'ERROR: Unknown method';
+            RenderService::render($data, 405);
+            return false;
+        }
+        if(!$this->request->validateRoute()) {
+            $data['message'] = 'ERROR: Unknown route';
+            RenderService::render($data, 404);
+            return false;
+        }
+        if(!$this->isControllerValid()) {
+            $data['message'] = 'ERROR: Wrong usage of api';
+            RenderService::render($data, 404);
+            return false;
+        }
+        return true;
     }
 
     /**

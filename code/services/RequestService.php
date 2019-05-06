@@ -44,5 +44,26 @@ class RequestService {
     public function isMethodValid() {
         return in_array($this->method, self::ACCEPTED_METHODS);
     }
+
+    /**
+     * getAllParameters
+     * :: Returns params saved through the request
+     * @author rodrigomata
+     * @return Array
+     */
+    public function getAllParameters() {
+        return $this->params ?? [];
+    }
+
+    /**
+     * getParameter
+     * :: Returns a specific parameter 
+     * @author rodrigomata
+     * @param Mixed $param Parameter to retrieve if able
+     * @return Mixed[]
+     */
+    public function getParameter($param) {
+        return $this->params[$param] ?? null;
+    }
 }
 ?>

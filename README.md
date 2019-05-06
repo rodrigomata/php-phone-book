@@ -45,4 +45,10 @@ GET /api/user
 
 Test: [http://localhost:8080/api/user](http://localhost:8080/api/user)
 
-The API will always return a json with both `data` and `message` properties. In case an error occurs, `message` will be different than 'OK'.
+The API will always return a json with both `data` and `message` properties.
+
+### Upgrading MySQL container
+In case you would like to upgrade your MySQL container (currently 5.7 to support JSON structures), you would need to manually run the upgrade to perform changes in the tables.
+```
+docker exec -it /bin/bash mysql_upgrade -u root -p --force
+``` 
